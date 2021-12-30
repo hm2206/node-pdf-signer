@@ -10,7 +10,7 @@ Utiliza un JAR para generar la firma digital
   node.js 14.*
 ```
 
-### Dimesión del Widget
+### Dimensión del Widget
 
 ```
   Height = 150px
