@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",  
+    "useDefineForClassFields": true,                                 
+    "lib": ["ESNext"], 
+    "allowJs": false,   
+    "module": "CommonJS",                               
+    "rootDir": "src",       
+    "declaration": true,                                     
+    "outDir": "build",                                   
+    "removeComments": true, 
+    "moduleResolution": "Node",               
+    "esModuleInterop": true,  
+    "resolveJsonModule": true,
+    "isolatedModules": true,                           
+    "forceConsistentCasingInFileNames": true, 
+    "allowSyntheticDefaultImports": true,
+    "strict": true,                              
+    "skipLibCheck": false                                
+  }
+}
