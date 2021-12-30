@@ -1,5 +1,5 @@
 {
-  "name": "node-pdf-signer",
+  "name": "node-pdf-signature",
   "version": "1.0.0",
   "description": "Firmador PDF",
   "main": "build/index.js",
