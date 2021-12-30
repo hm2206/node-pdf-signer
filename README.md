@@ -3,6 +3,13 @@
 Es una libreria para firmar digitalmente un PDF desde Node.js
 Utiliza un JAR para generar la firma digital
 
+### Requisitos
+
+```
+  jdk8
+  node.js 14.*
+```
+
 ### Dimesión del Widget
 
 ```
