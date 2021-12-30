@@ -60,8 +60,6 @@ signer
   }
 ```
 
-Si no se pasa **positionX** o el **positionY** se posicionara en la cordenada 0,0
-
 ## Ejemplo Firma invisible
 
 ```ts
