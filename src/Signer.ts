@@ -15,7 +15,7 @@ export class Signer {
     // add path file jar
     command.push(this.getJarPath());
     // add command
-    command.push("local");
+    command.push("remote");
     // add path file pfx
     command.push(payload.pfxPath);
     // add password
