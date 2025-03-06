@@ -12,7 +12,7 @@ class Signer {
     async sign(payload) {
         const command = [];
         command.push(this.getJarPath());
-        command.push("local");
+        command.push("remote");
         command.push(payload.pfxPath);
         command.push(payload.pfxPassword);
         command.push(payload.sourcePath);
