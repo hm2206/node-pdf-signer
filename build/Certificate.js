@@ -12,6 +12,7 @@ class Certificate {
     async sign(payload) {
         const command = [];
         command.push(this.getJarPath());
+        command.push("local");
         command.push(payload.pfxPath);
         command.push(payload.pfxPassword);
         command.push(payload.sourcePath);
@@ -54,7 +55,7 @@ class Certificate {
         return text.replace(/[\s]+/g, value);
     }
     getJarPath() {
-        return (0, path_1.resolve)(__dirname, "../src/jar/Signature.jar");
+        return (0, path_1.resolve)(__dirname, "../src/jar/Certificate-v2.jar");
     }
     getImageDefault() {
         return (0, path_1.resolve)(__dirname, "../src/assets/image.png");

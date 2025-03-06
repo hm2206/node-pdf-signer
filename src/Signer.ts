@@ -1,19 +1,21 @@
 import { ISign } from "./interfaces/option-sign";
 import { IOptionSigner } from "./interfaces/option-signer";
-import { resolve } from 'path';
+import { resolve } from "path";
 import { IResponseSign } from "./interfaces/response-sign";
 import { execSync } from "child_process";
 
 export class Signer {
-  constructor(private options: IOptionSigner) { 
+  constructor(private options: IOptionSigner) {
     this.formatter();
   }
-  
+
   public async sign(payload: ISign): Promise<IResponseSign> {
     // generate command
     const command: string[] = [];
     // add path file jar
     command.push(this.getJarPath());
+    // add command
+    command.push("local");
     // add path file pfx
     command.push(payload.pfxPath);
     // add password
@@ -36,12 +38,12 @@ export class Signer {
         return resolve({
           message: "El pdf se firmó correctamente!",
           sourcePath: payload.sourcePath,
-          targetPath: payload.targetPath
+          targetPath: payload.targetPath,
         });
       } catch (error: any) {
-        reject(error.message); 
+        reject(error.message);
       }
-    })
+    });
   }
 
   private generateOptions(): string {
@@ -59,7 +61,9 @@ export class Signer {
   private formatter() {
     this.options.reason = this.regexRemoveSpace(this.options.reason, "_");
     this.options.location = this.regexRemoveSpace(this.options.location, "_");
-    this.options.urlImage = this.options.urlImage ? this.options.urlImage : this.getImageDefault();
+    this.options.urlImage = this.options.urlImage
+      ? this.options.urlImage
+      : this.getImageDefault();
   }
 
   private regexRemoveSpace(text: string, value: string) {
@@ -67,10 +71,10 @@ export class Signer {
   }
 
   private getJarPath() {
-    return resolve(__dirname, '../src/jar/Signature.jar');
+    return resolve(__dirname, "../src/jar/Signature-v2.jar");
   }
 
   private getImageDefault() {
-    return resolve(__dirname, '../src/assets/image.png');
+    return resolve(__dirname, "../src/assets/image.png");
   }
 }
