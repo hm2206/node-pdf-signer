@@ -12,6 +12,7 @@ class Signer {
     async sign(payload) {
         const command = [];
         command.push(this.getJarPath());
+        command.push("local");
         command.push(payload.pfxPath);
         command.push(payload.pfxPassword);
         command.push(payload.sourcePath);
@@ -25,7 +26,7 @@ class Signer {
                 return resolve({
                     message: "El pdf se firmó correctamente!",
                     sourcePath: payload.sourcePath,
-                    targetPath: payload.targetPath
+                    targetPath: payload.targetPath,
                 });
             }
             catch (error) {
@@ -46,16 +47,18 @@ class Signer {
     formatter() {
         this.options.reason = this.regexRemoveSpace(this.options.reason, "_");
         this.options.location = this.regexRemoveSpace(this.options.location, "_");
-        this.options.urlImage = this.options.urlImage ? this.options.urlImage : this.getImageDefault();
+        this.options.urlImage = this.options.urlImage
+            ? this.options.urlImage
+            : this.getImageDefault();
     }
     regexRemoveSpace(text, value) {
         return text.replace(/[\s]+/g, value);
     }
     getJarPath() {
-        return (0, path_1.resolve)(__dirname, '../src/jar/Signature.jar');
+        return (0, path_1.resolve)(__dirname, "../src/jar/Signature-v2.jar");
     }
     getImageDefault() {
-        return (0, path_1.resolve)(__dirname, '../src/assets/image.png');
+        return (0, path_1.resolve)(__dirname, "../src/assets/image.png");
     }
 }
 exports.Signer = Signer;
